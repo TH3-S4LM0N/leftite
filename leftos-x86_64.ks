@@ -27,28 +27,11 @@ network --bootproto=dhcp --device=link --activate
 rootpw --lock --iscrypted locked
 shutdown
 
-###################################
-# start fedora-repo.ks
-# Include the appropriate repo definitions
-
-# Exactly one of the following should be uncommented
-
-# For the master branch the following should be uncommented
-# %include fedora-repo-rawhide.ks
-
-# For non-master branches the following should be uncommented
-###################################
-# start fedora-repo-not-rawhide.ks
+# fedora 37 repos
 repo --name=fedora --mirrorlist=https://mirrors.fedoraproject.org/mirrorlist?repo=fedora-$releasever&arch=$basearch
 repo --name=updates --mirrorlist=https://mirrors.fedoraproject.org/mirrorlist?repo=updates-released-f$releasever&arch=$basearch
 #repo --name=updates-testing --mirrorlist=https://mirrors.fedoraproject.org/mirrorlist?repo=updates-testing-f$releasever&arch=$basearch
 url --mirrorlist=https://mirrors.fedoraproject.org/mirrorlist?repo=fedora-$releasever&arch=$basearch
-# end fedora-repo-not-rawhide.ks
-###################################
-
-# end fedora-repo.ks
-###################################
-
 
 %packages
 # Explicitly specified here:
@@ -148,7 +131,25 @@ fi
 
 # end fedora-live-base.ks
 ########################################
-%include fedora-workstation-common.ks
+########################################
+# start fedora-workstation-common.ks
+%packages
+
+# Exclude unwanted groups that fedora-live-base.ks pulls in
+-@dial-up
+-@input-methods
+-@standard
+
+# Install workstation-product-environment to resolve RhBug:1891500
+@^workstation-product-environment
+
+# Exclude unwanted packages from @anaconda-tools group
+-gfs2-utils
+-reiserfs-utils
+
+%end
+# end fedora-workstation-common.ks
+########################################
 #
 # Disable this for now as packagekit is causing compose failures
 # by leaving a gpg-agent around holding /dev/null open.
