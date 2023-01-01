@@ -11,8 +11,8 @@ sudo setenforce 0
 
 sudo usermod -a -G mock <user>
 ./build.sh
-git clone https://github.com/TH3-S4LM0N/leftos.git
-cp leftos/leftos-37-x86_64.ks .
+git clone https://github.com/TH3-S4LM0N/leftos.git && \
+cp leftos/leftos-37-x86_64.ks . && \
 livemedia-creator --ks ./leftos-37-x86_64.ks --no-virt --resultdir /var/lmc --project LeftOS-37-x86_64 --make-iso --volid LeftOS-37-x86_64 --iso-only --iso-name LeftOS-37-x86_64.iso --releasever 37 --macboot
 exit
 cp /var/lib/mock/fedora-27-x86_64/root/var/lmc/*.iso $HOME
