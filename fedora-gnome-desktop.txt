@@ -1,13 +1,3 @@
-FROM quay.io/fedora-ostree-desktops/silverblue:37
-COPY etc /etc
-COPY usr /usr
-
-# Enable RPM Fusion (thanks tony)
-RUN rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm && \
-rpm-ostree install rpmfusion-nonfree-release rpmfusion-free-release --uninstall=rpmfusion-free-release-$(rpm -E %fedora)-1.noarch --uninstall=rpmfusion-nonfree-release-$(rpm -E %fedora)-1.noarch
-
-# uninstall gnome
-RUN rpm-ostree override remove \
 NetworkManager-adsl \
 NetworkManager-openconnect-gnome \
 NetworkManager-openvpn-gnome \
@@ -301,9 +291,3 @@ vte291 \
 xen-libs \
 xen-licenses \
 zfs-fuse
-
-
-# leftwm install
-RUN rpm-ostree install leftwm
-
-RUN rpm-ostree cleanup -m && ostree container commit

@@ -1,0 +1,121 @@
+* {
+    neonblue: #40A4FF;
+    dirtywhite: #abb2bf;
+    gray: #1e2127;
+    red: #FF5250;
+}
+window {
+    background-color: @gray;
+    border:           1;
+    padding:          5;
+    border-color: @neonblue;
+}
+mainbox {
+    border:  0;
+    padding: 0;
+    background-color: @gray;
+}
+message {
+    border:       2px 0px 0px;
+    padding:      1px;
+    background-color: @gray;
+}
+textbox {
+    text-color: @dirtywhite;
+    background-color: @gray;
+}
+listview {
+    fixed-height: 0;
+    border:       2px 0px 0px;
+    border-color: @neonblue;
+    spacing:      2px ;
+    scrollbar:    true;
+    padding:      2px 0px 0px;
+    background-color: @gray;
+}
+element {
+    border:  0;
+    padding: 1px;
+    background-color: @gray;
+}
+element-text {
+    background-color: @gray;
+    text-color:       @dirtywhite;
+}
+element.normal.normal {
+    background-color: @gray;
+    text-color:       @dirtywhite;
+}
+element.normal.urgent {
+    background-color: @gray;
+    text-color:       @red;
+}
+element.normal.active {
+    background-color: @gray;
+    text-color:       @neonblue;
+}
+element.selected.normal {
+    background-color: @neonblue;
+    text-color:       @neonblue;
+}
+element.selected.urgent {
+    background-color: @gray;
+    text-color:       @red;
+}
+element.selected.active {
+    background-color: @gray;
+    text-color:       @neonblue;
+}
+scrollbar {
+    width:        4px;
+    border:       0;
+    handle-color: @neonblue;
+    handle-width: 8px;
+    padding:      0;
+    background-color: @gray;
+}
+mode-switcher {
+    border:       2px 0px 0px;
+    border-color: @neonblue;
+    background-color: @gray;
+}
+button {
+    spacing:    0;
+    text-color: @neonblue;
+    background-color: @gray;
+}
+button.selected {
+    background-color: @gray;
+    text-color:       @neonblue;
+}
+inputbar {
+    spacing:    0;
+    text-color: @dirtywhite;
+    background-color: @gray;
+    padding:    1px;
+}
+case-indicator {
+    spacing:    0;
+    background-color: @gray;
+    text-color: @dirtywhite;
+}
+entry {
+    spacing:    0;
+    text-color: @dirtywhite;
+    background-color: @gray;
+}
+prompt {
+    spacing:    0;
+    text-color: @neonblue;
+    background-color: @gray;
+}
+inputbar {
+    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+}
+textbox-prompt-colon {
+    background-color: @gray;
+    expand:     false;
+    str:        ":";
+    margin:     0px 0.3em 0em 0em ;
+    text-color: @dirtywhite;
+}
