@@ -8,7 +8,8 @@ rpm-ostree install rpmfusion-nonfree-release rpmfusion-free-release --uninstall=
 
 # uninstall gnome
 # this prolly doesnt work
-RUN rpm-ostree override remove @gnome-desktop
+
+# current problem: idk how
 
 # leftwm install
 RUN rpm-ostree install leftwm
