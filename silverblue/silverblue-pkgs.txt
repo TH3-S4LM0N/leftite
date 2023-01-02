@@ -1,4 +1,4 @@
-ModemManager-1.18.8-2.fc37.x86_64
+ ModemManager-1.18.8-2.fc37.x86_64
  ModemManager-glib-1.18.8-2.fc37.x86_64
  NetworkManager-1:1.40.0-1.fc37.x86_64
  NetworkManager-adsl-1:1.40.0-1.fc37.x86_64
