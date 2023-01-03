@@ -1,0 +1,1 @@
+This folder contains various configs used, mostly from my own dotfiles but with some saner defaults
