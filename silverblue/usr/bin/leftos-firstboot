@@ -7,4 +7,11 @@ if [ "$(whoami)" == "root"]; then
 fi
 
 cfg="/usr/share/leftos/configs"
+mkdir ~/.config/leftwm/../dunst/../alacritty/../fish
+
+echo "Moving configs"
 cp -r $cfg/leftwm ~/.config/leftwm
+cp $cfg/dunstrc ~/.config/dunst
+cp -r $cfg/rofi/ ~/.config/
+cp $cfg/alacritty.yml ~/.config/alacritty/
+cp $cfg/config.fish ~/.config/fish
