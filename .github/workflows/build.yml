@@ -31,7 +31,11 @@ jobs:
 
       # Prep script
       - name: Prep
-        run: ./action_prep.sh
+        run: |
+          mkdir -p ./builddir
+          cp -r ./silverblue/* ./builddir
+          mkdir -p ./builddir/usr/share/leftos
+          cp -r ./configs ./builddir/usr/share/leftos
 
       # Build image using Buildah action
       - name: Build Image
