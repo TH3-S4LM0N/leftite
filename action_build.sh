@@ -6,6 +6,3 @@ mkdir -p $SCRIPTPATH/builddir
 cp -r $SCRIPTPATH/silverblue/* $SCRIPTPATH/builddir
 mkdir -p $SCRIPTPATH/builddir/usr/share/leftos
 cp -r $SCRIPTPATH/configs $SCRIPTPATH/builddir/usr/share/leftos
-podman build $SCRIPTPATH/builddir
-
-rm -r $SCRIPTPATH/builddir

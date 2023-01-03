@@ -1,3 +1,10 @@
 #!/usr/bin/env bash
 # firstboot script for leftos
 
+if [ "$(whoami)" == "root"]; then
+    echo "Do not run as root"
+    exit 1
+fi
+
+cfg="/usr/share/leftos/configs"
+cp -r $cfg/leftwm ~/.config/leftwm
