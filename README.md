@@ -5,8 +5,9 @@
 
 ### Installation
 #### Silverblue
-```
+```bash
 rpm-ostree rebase --experimental ostree-unverified-registry:ghcr.io/th3-s4lm0n/leftos:latest
+```
 
 ### ToDo
 [X] Nomral (mutatable) Fedora Workstation Spin
