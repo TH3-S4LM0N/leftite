@@ -29,20 +29,13 @@ jobs:
       - name: Checkout Push to Regisktry action
         uses: actions/checkout@v2
 
-      # Prep script
-      - name: Prep
-        run: |
-          cp -r ./silverblue ./builddir && \
-          mkdir -p ./builddir/usr/share/leftos && \
-          cp -r ./configs ./builddir/usr/share/leftos
-
       # Build image using Buildah action
       - name: Build Image
         id: build_image
         uses: redhat-actions/buildah-build@v2
         with:
           containerfiles: |
-            ./builddir/Containerfile
+            ./Containerfile
           image: ${{ env.IMAGE_NAME }}
           tags: ${{ env.IMAGE_TAGS }}
           oci: true
