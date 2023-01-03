@@ -32,8 +32,7 @@ jobs:
       # Prep script
       - name: Prep
         run: |
-          mkdir -p ./builddir && \
-          cp -r ./silverblue/* ./builddir && \
+          cp -r ./silverblue ./builddir && \
           mkdir -p ./builddir/usr/share/leftos && \
           cp -r ./configs ./builddir/usr/share/leftos
 
