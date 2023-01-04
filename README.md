@@ -1,5 +1,7 @@
 # leftite
-A [LeftWM](https://github.com/leftwm/leftwm) workstation for [Fedora Silverblue](https://silverblue.fedoraproject.org)
+### Not Complete, please do not use
+A [LeftWM](https://github.com/leftwm/leftwm) workstation for [Fedora Silverblue](https://silverblue.fedoraproject.org) \
+
 
 ### Installation
 ```bash
