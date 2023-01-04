@@ -7,7 +7,7 @@ rpm-ostree rebase --experimental ostree-unverified-registry:ghcr.io/th3-s4lm0n/l
 ```
 
 ### ToDo
-[X] System76-Scheduler as part of theme
+- [X] System76-Scheduler as part of theme
     - [X] KyleGospo Copr
 
 ### Credit where credit is due
