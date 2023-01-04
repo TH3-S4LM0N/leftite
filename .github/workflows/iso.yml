@@ -1,0 +1,37 @@
+name: iso
+
+on:
+  push:
+    paths:
+      - '/iso'
+  schedule:
+    - cron: '0 0 * * *'  # every day
+
+jobs:
+  build_test:
+    name: Build ISO
+    runs-on: ubuntu-22.04
+    container:
+      image: 'docker.io/fedora:37'
+    strategy:
+      fail-fast: false
+    steps:
+      - name: Clone repo
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: dnf install -y rpm-ostree git
+
+      - name: Build ISO
+        run: |
+          echo clone
+          git clone https://pagure.io/workstation-ostree-config && cd workstation-ostree-config
+          echo mkdir repo cache
+          mkdir -p repo cache
+          echo ostree init
+          ostree --repo=repo init --mode=archive
+          echo rpm-ostree compose
+          sudo rpm-ostree compose tree --repo=repo --cachedir=cache fedora-silverblue.yaml
+          echo ostree summary
+          ostree summary --repo=repo --update
+

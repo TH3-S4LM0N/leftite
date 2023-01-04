@@ -1,7 +1,9 @@
-name: build
+name: oci
 
 on:
   push:
+    paths:
+      - '/oci'
   schedule:
     - cron: '0 0 * * *'  # every day
 
