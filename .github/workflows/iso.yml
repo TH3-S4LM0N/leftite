@@ -2,8 +2,8 @@ name: iso
 
 on:
   push:
-    paths:
-      - '/iso'
+    #paths:
+    #  - 'iso/'
   schedule:
     - cron: '0 0 * * *'  # every day
 
