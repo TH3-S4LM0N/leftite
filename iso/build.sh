@@ -1,4 +1,4 @@
-#!/usr/bin/evn bash
+#!/usr/bin/env bash
 
 mkdir -p repo cache
 ostree --repo=repo init --mode=archive
