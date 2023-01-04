@@ -1,16 +1,12 @@
-# LeftOS
-[LeftWM](https://github.com/leftwm/leftwm) workstation for:
- - [Fedora Silverblue](https://silverblue.fedoraproject.org/)
- - More to come (probably)
+# leftite
+A [LeftWM](https://github.com/leftwm/leftwm) workstation for [Fedora Silverblue](https://silverblue.fedoraproject.org)
 
 ### Installation
-#### Silverblue
 ```bash
-rpm-ostree rebase --experimental ostree-unverified-registry:ghcr.io/th3-s4lm0n/leftos:latest
+rpm-ostree rebase --experimental ostree-unverified-registry:ghcr.io/th3-s4lm0n/leftite:latest
 ```
 
 ### ToDo
-[X] Nomral (mutatable) Fedora Workstation Spin
 [X] System76-Scheduler as part of theme
     - [X] KyleGospo Copr
 

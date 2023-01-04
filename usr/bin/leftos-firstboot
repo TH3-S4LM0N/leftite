@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-# firstboot script for leftos
+# firstboot script for leftite
 
 if [ "$(whoami)" == "root"]; then
     echo "Do not run as root"
     exit 1
 fi
 
-cfg="/usr/share/leftos/configs"
+cfg="/usr/share/leftite/configs"
 mkdir ~/.config/leftwm/../dunst/../alacritty/../fish
 
 echo "Moving configs"

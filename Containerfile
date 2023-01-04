@@ -21,8 +21,8 @@ RUN rpm-ostree install leftwm rofi feh alacritty dunst polybar picom fish
 
 # install sddm theme
 RUN mkdir -p /usr/share/sddm/themes
-RUN cp -r /usr/share/leftos/configs/sddm-theme /usr/share/sddm/themes/leftos
+RUN cp -r /usr/share/leftite/configs/sddm-theme /usr/share/sddm/themes/leftite
 RUN mkdir /etc/sddm.conf.d
-RUN cp /usr/share/leftos/configs/sddm.conf /etc/sddm.conf.d
+RUN cp /usr/share/leftite/configs/sddm.conf /etc/sddm.conf.d
 
 RUN rpm-ostree cleanup -m && ostree container commit
