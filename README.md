@@ -11,6 +11,9 @@ rpm-ostree rebase --experimental ostree-unverified-registry:ghcr.io/th3-s4lm0n/l
 ### Development
 All building is done via GitHub Actions and [act](https://github.com/nektos/act).
 
+##### Build ISO
+The ISO cannot currently be built in a container (ex a github action). A actual Fedora machine must be run (can be a vm, tested with qemu/kvm)
+
 ### Credit where credit is due
 I stole a lot of this from [here](https://github.com/cyrv6737/sb-custom), although he stole a lot from [Jorge Castro](https://github.com/castrojo) and he and [Kyle Gospo](https://github.com/kylegospo) taught me everything I know. \
 Also thanks to spotify I like music.
