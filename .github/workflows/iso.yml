@@ -32,7 +32,7 @@
 #          echo ostree init
 #          ostree --repo=repo init --mode=archive
 #          echo rpm-ostree compose
-#          sudo rpm-ostree compose tree --repo=repo --cachedir=cache fedora-silverblue.yaml
+#          sudo rpm-ostree compose tree --unified-core --repo=repo --cachedir=cache fedora-silverblue.yaml
 #          echo ostree summary
 #          ostree summary --repo=repo --update
 #
