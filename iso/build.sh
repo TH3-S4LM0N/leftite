@@ -7,4 +7,4 @@ ostree --repo=repo init --mode=archive
 echo "Composing tree"
 sudo rpm-ostree compose tree --unified-core --repo=repo --cachedir=cache fedora-silverblue.yaml
 echo "Summarizing"
-ostree summary --repo=repo --update
+sudo ostree summary --repo=repo --update
