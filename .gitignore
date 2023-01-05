@@ -1,1 +1,4 @@
 workstation-ostree-config/
+iso/repo/
+iso/cache/
+fedora-lorax-templates/
