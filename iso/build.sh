@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+sudo setenforce 0
 mkdir -p repo cache
 echo "Creating ostree repo"
 ostree --repo=repo init --mode=archive
@@ -39,3 +40,5 @@ lorax  --product=Fedora \
 		--tmp=$(pwd)/tmp \
 		--rootfs-size=8 \
 		$(pwd)/ostree_installer
+
+sudo setenforce 1
