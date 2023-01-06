@@ -1,4 +1,13 @@
 workstation-ostree-config/
 iso/repo/
 iso/cache/
+iso/ostree_installer
+iso/*.log
+iso/pkglists
+iso/debugdata
+iso/final-pkgsizes.txt
+iso/lorax.conf
+iso/original-pkgsizes.txt
+iso/pkglists
+iso/tmp
 fedora-lorax-templates/
