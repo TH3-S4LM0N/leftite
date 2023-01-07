@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 set -eux
 
+mkdir builddir && cd buildir
+
 sudo setenforce 0
 mkdir -p repo cache
 ostree --repo=repo init --mode=archive
-sudo rpm-ostree compose tree --unified-core --repo=repo --cachedir=cache fedora-silverblue.yaml
+sudo rpm-ostree compose tree --unified-core --repo=repo --cachedir=cache ../fedora-silverblue.yaml
 sudo lorax  --product=Fedora \
 		--version=37 \
 		--release=20180410 \
@@ -12,8 +14,8 @@ sudo lorax  --product=Fedora \
 		--variant=Silverblue \
 		--nomacboot \
 		--volid=Fedora-SB-ostree-x86_64-37 \
-		--add-template=$(pwd)/lorax-configure-repo.tmpl \
-		--add-template=$(pwd)/lorax-embed-repo.tmpl \
+		--add-template=$(pwd)/../lorax-configure-repo.tmpl \
+		--add-template=$(pwd)/../lorax-embed-repo.tmpl \
 		--add-template-var=ostree_install_repo=file://$(pwd)/repo \
 		--add-template-var=ostree_update_repo=file://$(pwd)/repo \
 		--add-template-var=ostree_osname=fedora \
@@ -26,5 +28,5 @@ sudo lorax  --product=Fedora \
 		--rootfs-size=8 \
 		$(pwd)/ostree_installer
 sudo setenforce 1
-cp ./ostree_installer/images/boot.iso .
+cp ./ostree_installer/images/boot.iso ..
 
