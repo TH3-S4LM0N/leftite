@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -eux
 
-mkdir builddir && cd buildir
+mkdir builddir && cd builddir
 
 sudo setenforce 0
 mkdir -p repo cache
