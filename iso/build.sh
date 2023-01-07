@@ -1,20 +1,10 @@
 #!/usr/bin/env bash
+set -eux
 
 sudo setenforce 0
 mkdir -p repo cache
-echo "Creating ostree repo"
 ostree --repo=repo init --mode=archive
-# unsure whether --unified-core is needed
-echo "Composing tree"
 sudo rpm-ostree compose tree --unified-core --repo=repo --cachedir=cache fedora-silverblue.yaml
-echo "Building ISO with Lorax"
-
-
-
-
-
-
-
 sudo lorax  --product=Fedora \
 		--version=37 \
 		--release=20180410 \
@@ -35,7 +25,6 @@ sudo lorax  --product=Fedora \
 		--tmp=$(pwd)/tmp \
 		--rootfs-size=8 \
 		$(pwd)/ostree_installer
-
 sudo setenforce 1
 cp ./ostree_installer/images/boot.iso .
 
