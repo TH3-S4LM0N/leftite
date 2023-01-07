@@ -1,13 +1,18 @@
 #!/usr/bin/env bash
 set -eux
 
+if [ "$(whoami)" != "root" ]; then
+	echo "Must be run as root"
+	exit 1
+fi
+
 mkdir builddir && cd builddir
 
-sudo setenforce 0
+setenforce 0
 mkdir -p repo cache
 ostree --repo=repo init --mode=archive
-sudo rpm-ostree compose tree --unified-core --repo=repo --cachedir=cache ../fedora-silverblue.yaml
-sudo lorax  --product=Fedora \
+rpm-ostree compose tree --unified-core --repo=repo --cachedir=cache ../fedora-silverblue.yaml
+lorax  --product=Fedora \
 		--version=37 \
 		--release=20180410 \
 		--source=https://kojipkgs.fedoraproject.org/compose/37/latest-Fedora-37/compose/Everything/x86_64/os/ \
@@ -27,6 +32,8 @@ sudo lorax  --product=Fedora \
 		--tmp=$(pwd)/tmp \
 		--rootfs-size=8 \
 		$(pwd)/ostree_installer
-sudo setenforce 1
+setenforce 1
 cp ./ostree_installer/images/boot.iso ..
+cd ..
+rm -r builddir
 
