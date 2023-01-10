@@ -13,7 +13,7 @@ setenforce 0
 #ostree --repo=repo init --mode=archive
 #rpm-ostree compose tree --unified-core --repo=repo --cachedir=cache ../fedora-silverblue.yaml
 
-lorax -p Fedora -v 33 -r 33 \
+lorax -p Fedora -v 37 -r 37 \
 	-s http://dl.fedoraproject.org/pub/fedora/linux/releases/37/Everything/x86_64/os/ \
 	-s http://dl.fedoraproject.org/pub/fedora/linux/updates/37/x86_64/ \
 	./resulsts/
