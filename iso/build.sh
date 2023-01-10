@@ -9,13 +9,13 @@ fi
 mkdir builddir && cd builddir
 
 setenforce 0
-mkdir -p repo cache
-ostree --repo=repo init --mode=archive
-rpm-ostree compose tree --unified-core --repo=repo --cachedir=cache ../fedora-silverblue.yaml
+#mkdir -p repo cache
+#ostree --repo=repo init --mode=archive
+#rpm-ostree compose tree --unified-core --repo=repo --cachedir=cache ../fedora-silverblue.yaml
 
 lorax -p Fedora -v 33 -r 33 \
-	-s http://dl.fedoraproject.org/pub/fedora/linux/releases/33/Everything/x86_64/os/ \
-	-s http://dl.fedoraproject.org/pub/fedora/linux/updates/33/x86_64/ \
+	-s http://dl.fedoraproject.org/pub/fedora/linux/releases/37/Everything/x86_64/os/ \
+	-s http://dl.fedoraproject.org/pub/fedora/linux/updates/37/x86_64/ \
 	./resulsts/
 
 #lorax  --product=Fedora \
@@ -41,5 +41,5 @@ lorax -p Fedora -v 33 -r 33 \
 setenforce 1
 cp ./ostree_installer/images/boot.iso ..
 cd ..
-rm -r builddir
+rm -r builddir/ostree_installer
 
