@@ -40,7 +40,7 @@ lorax  --product=Fedora \
         --add-template-var=flatpak_remote_refs="runtime/org.fedoraproject.Platform/x86_64/f37 app/org.gnome.gedit/x86_64/stable" \
 		--logfile=$(pwd)/lorax.log \
 		--tmp=$(pwd)/tmp \
-		--rootfs-size=8 \ # i need to find the min size so i can put on gh
+		--rootfs-size=8 \
 		$(pwd)/ostree_installer
 setenforce 1
 mv ./ostree_installer/images/boot.iso ..
