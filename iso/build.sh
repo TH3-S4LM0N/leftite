@@ -37,13 +37,12 @@ lorax  --product=Fedora \
 		--add-template-var=ostree_update_ref=fedora/37/x86_64/silverblue \
 		--add-template-var=flatpak_remote_name=fedora \
         --add-template-var=flatpak_remote_url=oci+https://registry.fedoraproject.org \
-        --add-template-var=flatpak_remote_refs="runtime/org.fedoraproject.Platform/x86_64/f35 app/org.gnome.gedit/x86_64/stable" \
+        --add-template-var=flatpak_remote_refs="runtime/org.fedoraproject.Platform/x86_64/f37 app/org.gnome.gedit/x86_64/stable" \
 		--logfile=$(pwd)/lorax.log \
 		--tmp=$(pwd)/tmp \
-		--rootfs-size=8 \
 		$(pwd)/ostree_installer
 setenforce 1
-cp ./ostree_installer/images/boot.iso ..
+mv ./ostree_installer/images/boot.iso ..
 cd ..
 rm -r builddir/ostree_installer
 
