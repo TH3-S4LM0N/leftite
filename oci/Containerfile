@@ -26,12 +26,14 @@ rpm-ostree install rpmfusion-nonfree-release rpmfusion-free-release --uninstall=
 # RUN rpm-ostree override remove
 
 # install everything 
-#RUN rpm-ostree install leftwm rofi feh alacritty dunst polybar picom fish sddm
+RUN rpm-ostree install leftwm rofi feh alacritty dunst polybar picom fish sddm
 #RUN systemctl enable sddm
 
 # install sddm theme
 #RUN mkdir -p /usr/share/sddm/themes
 #RUN cp -r /usr/share/leftite/configs/sddm-theme /usr/share/sddm/themes/leftite
+
+# place configs
 #RUN cp /usr/share/leftite/configs/sddm.conf /etc/sddm.conf.d
 
 RUN rpm-ostree cleanup -m && ostree container commit
