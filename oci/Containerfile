@@ -1,6 +1,6 @@
 FROM quay.io/fedora-ostree-desktops/silverblue:37
 
-#COPY oci/etc /etc
+COPY oci/etc /etc
 #COPY oci/usr /usr
 
 # Enable RPM Fusion (thanks tony)
