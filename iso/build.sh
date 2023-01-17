@@ -35,8 +35,6 @@ lorax  --product=Fedora \
 		--add-template-var=ostree_osname=fedora \
 		--add-template-var=ostree_oskey=fedora-37-primary \
 		--add-template-var=ostree_contenturl=mirrorlist=https://ostree.fedoraproject.org/mirrorlist \
-		#--add-template-var=ostree_install_ref=fedora/37/x86_64/silverblue \
-		#--add-template-var=ostree_update_ref=fedora/37/x86_64/silverblue \
 		--add-template-var-ostree_install_ref=ghcr.io/th3-s4lm0n/leftite \
 		--add-template-var-ostree_update_ref=ghcr.io/th3-s4lm0n/leftite \
 		--add-template-var=flatpak_remote_name=fedora \
