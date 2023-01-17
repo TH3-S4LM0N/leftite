@@ -33,11 +33,11 @@ lorax  --product=Fedora \
         --add-template=$(pwd)/fedora-lorax-templates/ostree-based-installer/lorax-embed-flatpaks.tmpl \
 		--add-template-var=ostree_install_repo=file://$(pwd)/repo \
 		--add-template-var=ostree_update_repo=file://$(pwd)/repo \
-		--add-template-var=ostree_osname=fedora \
+		--add-template-var=ostree_osname=ostree-unverified-registry \
 		--add-template-var=ostree_oskey=fedora-37-primary \
 		--add-template-var=ostree_contenturl=mirrorlist=https://ostree.fedoraproject.org/mirrorlist \
-		--add-template-var=ostree_install_ref=ostree-unverified-registry:ghcr.io/th3-s4lm0n/leftite \
-		--add-template-var=ostree_update_ref=ostree-unverified-registry:ghcr.io/th3-s4lm0n/leftite \
+		--add-template-var=ostree_install_ref=ghcr.io/th3-s4lm0n/leftite \
+		--add-template-var=ostree_update_ref=ghcr.io/th3-s4lm0n/leftite \
 		--add-template-var=flatpak_remote_name=fedora \
         --add-template-var=flatpak_remote_url=oci+https://registry.fedoraproject.org \
 		--add-template-var=flatpak_remote_refs="runtime/org.fedoraproject.Platform/x86_64/f37" \
