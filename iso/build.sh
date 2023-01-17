@@ -7,10 +7,7 @@ if [ "$(whoami)" != "root" ]; then
 fi
 
 setenforce 0
-if [ ! -d "$(pwd)/builddir" ]; then
-	mkdir builddir
-fi
-
+mkdir builddir
 cd builddir
 
 git clone -b f37 https://pagure.io/workstation-ostree-config.git
