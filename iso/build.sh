@@ -7,7 +7,8 @@ if [ "$(whoami)" != "root" ]; then
 fi
 
 setenforce 0
-mkdir builddir && cd builddir
+mkdir builddir
+cd builddir
 
 git clone -b f37 https://pagure.io/workstation-ostree-config.git
 git clone -b f37 https://pagure.io/fedora-lorax-templates.git
