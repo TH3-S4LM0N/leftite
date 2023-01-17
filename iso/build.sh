@@ -39,7 +39,7 @@ lorax  --product=Fedora \
 		--add-template-var-ostree_update_ref=ghcr.io/th3-s4lm0n/leftite \
 		--add-template-var=flatpak_remote_name=fedora \
         --add-template-var=flatpak_remote_url=oci+https://registry.fedoraproject.org \
-		--add-template-var=flatpak_remote_refs="runtime/org.fedoraproject.Platform/x86_64/f37"
+		--add-template-var=flatpak_remote_refs="runtime/org.fedoraproject.Platform/x86_64/f37" \
 		--logfile=$(pwd)/lorax.log \
 		--tmp=$(pwd)/tmp \
 		--rootfs-size=8 \
