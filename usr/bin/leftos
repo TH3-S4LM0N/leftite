@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+# firstboot script for leftite
+firstboot() {
+if [ "$(whoami)" == "root"]; then
+    echo "Do not run as root"
+    exit 1
+fi
+
+echo "Switching out flatpak repos"
+flatpak remote-delete flathub --force
+flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+echo "Removing unwanted flatpaks"
+flatpak uninstall --user --system --noninteractive \
+    org.gnome.Maps \
+    org.gnome.Contacts \
+    org.gnome.Characters \
+    org.gnome.Weather \
+    org.gnome.font-viewer \
+    org.gnome.Connections \
+    org.fedoraproject.MediaWriter \
+    org.gnome.Calculator \
+    org.gnome.Calender \
+    org.gnome.Evince \
+    org.gnome.Extensions \
+    org.gnome.Logs \
+    org.gnome.NautilusPreviewer \
+    org.gnome.TextEditor \
+    org.gnome.baobab \
+    org.gnome.clocks \
+    org.gnome.eog
+
+echo "Installing flatpaks"
+flatpak install --user --noninteractive \
+    org.mozilla.firefox \
+    com.vscodium.codium
+
+
+cfg="/usr/share/leftite/configs"
+mkdir ~/.config/leftwm/../dunst/../alacritty/../fish
+
+echo "Moving configs"
+cp -r $cfg/leftwm ~/.config/leftwm
+cp $cfg/dunstrc ~/.config/dunst
+cp -r $cfg/rofi/ ~/.config/
+cp $cfg/alacritty.yml ~/.config/alacritty/
+cp $cfg/config.fish ~/.config/fish
+}
+
+help() {
+    echo "Commands:"
+    echo " - firstboot: runs the install script"
+}
+
+$1
