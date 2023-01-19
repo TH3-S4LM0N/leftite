@@ -45,6 +45,8 @@ cp $cfg/dunstrc ~/.config/dunst
 cp -r $cfg/rofi/ ~/.config/
 cp $cfg/alacritty.yml ~/.config/alacritty/
 cp $cfg/config.fish ~/.config/fish
+
+ln -s ~/.config/leftwm/themes/leftite ~/.config/leftwm/themes/current
 }
 
 help() {
