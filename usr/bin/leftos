@@ -20,7 +20,7 @@ flatpak uninstall --user --system --noninteractive \
     org.gnome.Connections \
     org.fedoraproject.MediaWriter \
     org.gnome.Calculator \
-    org.gnome.Calender \
+    org.gnome.Calendar \
     org.gnome.Evince \
     org.gnome.Extensions \
     org.gnome.Logs \
