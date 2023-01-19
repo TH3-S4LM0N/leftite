@@ -37,7 +37,7 @@ flatpak install --user --noninteractive \
 
 
 cfg="/usr/share/leftite/configs"
-mkdir -p ~/.config/leftwm/../dunst/../alacritty/../fish
+mkdir -p ~/.config/dunst/../alacritty/../fish
 
 echo "Moving configs"
 cp -r $cfg/leftwm ~/.config/leftwm
