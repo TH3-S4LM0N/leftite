@@ -8,7 +8,7 @@ FROM quay.io/fedora-ostree-desktops/silverblue:37
 COPY etc /etc
 COPY usr /usr
 
-RUN chmod +x /usr/bin/leftos
+RUN chmod +x /usr/bin/leftite
 
 # Enable RPM Fusion (thanks tony)
 RUN rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm && \
@@ -29,15 +29,17 @@ rpm-ostree install rpmfusion-nonfree-release rpmfusion-free-release --uninstall=
 # install flatpak incase people want to use a diff browser
 RUN rpm-ostree override remove firefox firefox-langpacks
 
+
 # install everything 
 RUN rpm-ostree install leftwm rofi feh \
     alacritty dunst polybar picom fish \
     sddm distrobox
-#RUN systemctl enable sddm
+# install hack
+# copr is currently broken on my router or smthn idk
 
 # install sddm theme
-#RUN mkdir -p /usr/share/sddm/themes
-#RUN cp -r /usr/share/leftite/configs/sddm-theme /usr/share/sddm/themes/leftite
-#RUN cp /usr/share/leftite/configs/sddm.conf /etc/sddm.conf.d
+RUN mkdir -p /usr/share/sddm/themes
+RUN cp -r /usr/share/leftite/configs/sddm-theme /usr/share/sddm/themes/leftite
+RUN cp /usr/share/leftite/configs/sddm.conf /etc/sddm.conf.d
 
 RUN rpm-ostree cleanup -m && ostree container commit

@@ -35,16 +35,22 @@ flatpak install --user --noninteractive \
     org.mozilla.firefox \
     com.vscodium.codium
 
+echo "Enabling sddm"
+systemctl disable gdm
+systemctl enable sddm
+
 
 cfg="/usr/share/leftite/configs"
-mkdir -p ~/.config/dunst/../alacritty/../fish
+mkdir -p ~/.config/dunst/../alacritty/../fish../polybar
 
-echo "Moving configs"
+echo "Installing configs"
 cp -r $cfg/leftwm ~/.config/leftwm
 cp $cfg/dunstrc ~/.config/dunst
 cp -r $cfg/rofi/ ~/.config/
 cp $cfg/alacritty.yml ~/.config/alacritty/
 cp $cfg/config.fish ~/.config/fish
+cp $cfg/wallpaper.jpg ~/.config/polybar/config.ini
+cp $cfg/polybar.ini ~/.config/polybar
 
 ln -s ~/.config/leftwm/themes/leftite ~/.config/leftwm/themes/current
 }
@@ -60,4 +66,8 @@ while [[ "$1" ]]; do
         "firstboot") firstboot ;;
         "-d"|"--debug") set -eux ;;
     esac
-shift
+    
+    shift
+done
+
+exit 0
