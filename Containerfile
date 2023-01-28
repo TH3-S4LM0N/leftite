@@ -1,9 +1,5 @@
 FROM quay.io/fedora-ostree-desktops/silverblue:37
 
-# local
-#COPY etc /etc
-#COPY usr /usr
-
 # oci
 COPY etc /etc
 COPY usr /usr
@@ -13,8 +9,6 @@ RUN chmod +x /usr/bin/leftite
 # Enable RPM Fusion (thanks tony)
 RUN rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm && \
 rpm-ostree install rpmfusion-nonfree-release rpmfusion-free-release --uninstall=rpmfusion-free-release-$(rpm -E %fedora)-1.noarch --uninstall=rpmfusion-nonfree-release-$(rpm -E %fedora)-1.noarch
-
-
 
 # uninstall gnome
 # TO BE CLEAR:
@@ -33,9 +27,7 @@ RUN rpm-ostree override remove firefox firefox-langpacks
 # install everything 
 RUN rpm-ostree install leftwm rofi feh \
     alacritty dunst polybar picom fish \
-    sddm distrobox
-# install hack
-# copr is currently broken on my router or smthn idk
+    sddm distrobox hack-fonts
 
 # install sddm theme
 RUN mkdir -p /usr/share/sddm/themes
