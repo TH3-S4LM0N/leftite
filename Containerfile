@@ -27,7 +27,13 @@ RUN rpm-ostree override remove firefox firefox-langpacks
 # install everything 
 RUN rpm-ostree install leftwm rofi feh \
     alacritty dunst polybar picom fish \
-    sddm distrobox hack-fonts
+    sddm distrobox
+
+# install hack nerd font
+RUN wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Hack.zip
+RUN unzip -d hack ./Hack.zip
+RUN cp hack/"Hack Bold Italic Nerd Font Complete Mono.ttf" hack/"Hack Bold Nerd Font Complete Mono.ttf" hack/"Hack Italic Nerd Font Complete Mono.ttf" hack/"Hack Regular Nerd Font Complete Mono.ttf" /usr/share/fonts
+RUN rm -r hack/
 
 # install sddm theme
 RUN mkdir -p /usr/share/sddm/themes
