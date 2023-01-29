@@ -38,8 +38,8 @@ RUN fc-cache -f -v
 RUN fc-list | grep Hack
 
 # install sddm theme
-#RUN mkdir -p /usr/share/sddm/themes
-#RUN cp -r /usr/share/leftite/configs/sddm-theme /usr/share/sddm/themes/leftite
-#RUN cp /usr/share/leftite/configs/sddm.conf /etc/sddm.conf.d
+RUN mkdir -p /usr/share/sddm/themes
+RUN cp -r /usr/share/leftite/configs/sddm-theme /usr/share/sddm/themes/leftite
+RUN cp /usr/share/leftite/configs/sddm.conf /etc/sddm.conf.d
 
 RUN rpm-ostree cleanup -m && ostree container commit
