@@ -36,21 +36,21 @@ flatpak install --user --noninteractive \
     com.vscodium.codium
 
 echo "Enabling sddm"
-systemctl disable gdm
-systemctl enable sddm
+sudo systemctl disable gdm
+sudo systemctl enable sddm
 
 
 cfg="/usr/share/leftite/configs"
-mkdir -p ~/.config/dunst/../alacritty/../fish../polybar
+mkdir -p ~/.config/dunst/../alacritty/../fish/../polybar
 
 echo "Installing configs"
-cp -r $cfg/leftwm ~/.config/leftwm
+cp -r $cfg/leftwm ~/.config/
 cp $cfg/dunstrc ~/.config/dunst
 cp -r $cfg/rofi/ ~/.config/
 cp $cfg/alacritty.yml ~/.config/alacritty/
 cp $cfg/config.fish ~/.config/fish
-cp $cfg/wallpaper.jpg ~/.config/polybar/config.ini
-cp $cfg/polybar.ini ~/.config/polybar
+cp $cfg/wallpaper.jpg ~/.config/
+cp $cfg/polybar.ini ~/.config/polybar/config.ini
 
 ln -s ~/.config/leftwm/themes/leftite ~/.config/leftwm/themes/current
 }
