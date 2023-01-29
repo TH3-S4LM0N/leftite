@@ -3,16 +3,7 @@
 A [LeftWM](https://github.com/leftwm/leftwm) workstation for [Fedora Silverblue](https://silverblue.fedoraproject.org).
 
 <!--
-    ## Differences/Features
-    A list of how this image differs from normal Fedora Silverblue \
-    - LeftWM with a premade theme
-    - RPM Fusion enabled
-
-    For upcoming features see #1
-
-    #### Apps installed OOTB
-    Apps, not all programs:
-    - Firefox
-    - VSCodium (VSCode but telemetry free/not proprietary)
+    ## Credits
+    - To Marian Arlt for the [Sugar Dark Theme](https://github.com/MarianArlt/sddm-sugar-dark) which this sddm theme is based off (a straight clone of with a new colorscheme)
 -->
 

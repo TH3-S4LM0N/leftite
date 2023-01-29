@@ -39,6 +39,8 @@ echo "Enabling sddm"
 sudo systemctl disable gdm
 sudo systemctl enable sddm
 
+echo "Setting fish as login shell"
+sudo usermod --shell $(which fish) $(whoami)
 
 cfg="/usr/share/leftite/configs"
 mkdir -p ~/.config/dunst/../alacritty/../fish/../polybar
