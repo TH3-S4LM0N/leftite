@@ -27,7 +27,7 @@ RUN rpm-ostree override remove firefox firefox-langpacks
 # install everything 
 RUN rpm-ostree install leftwm rofi feh \
     alacritty dunst polybar picom fish \
-    sddm distrobox
+    sddm distrobox qt5-qtquickcontrols2
 
 # install hack nerd font
 RUN wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Hack.zip
