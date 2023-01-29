@@ -1,71 +1,100 @@
 #!/usr/bin/env bash
-# firstboot script for leftite
+# script to manage leftite installs
+
+
 firstboot() {
-if [ "$(whoami)" == "root" ]; then
-    echo "Do not run as root"
-    exit 1
-fi
+    if [ "$(whoami)" == "root" ]; then
+        echo "Do not run as root"
+        exit 1
+    fi
 
-echo "Switching out flatpak repos"
-sudo flatpak remote-delete flathub --force
-flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    if [ "$2" == "" ]; then
+        echo -e "You must pass either --free or --nonfree\nSee `leftite --help`"
+        exit 1
+    fi
 
-echo "Removing unwanted flatpaks"
-flatpak uninstall --user --system --noninteractive \
-    org.gnome.Maps \
-    org.gnome.Contacts \
-    org.gnome.Characters \
-    org.gnome.Weather \
-    org.gnome.font-viewer \
-    org.gnome.Connections \
-    org.fedoraproject.MediaWriter \
-    org.gnome.Calculator \
-    org.gnome.Calendar \
-    org.gnome.Evince \
-    org.gnome.Extensions \
-    org.gnome.Logs \
-    org.gnome.NautilusPreviewer \
-    org.gnome.TextEditor \
-    org.gnome.baobab \
-    org.gnome.clocks \
-    org.gnome.eog
+    echo "Switching out flatpak repos"
+    sudo flatpak remote-delete flathub --force
+    flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
-echo "Installing flatpaks"
-flatpak install --user --noninteractive \
-    org.mozilla.firefox \
-    com.vscodium.codium
+    echo "Removing unwanted flatpaks"
+    flatpak uninstall --user --system --noninteractive \
+        org.gnome.Maps \
+        org.gnome.Contacts \
+        org.gnome.Characters \
+        org.gnome.Weather \
+        org.gnome.font-viewer \
+        org.gnome.Connections \
+        org.fedoraproject.MediaWriter \
+        org.gnome.Calculator \
+        org.gnome.Calendar \
+        org.gnome.Evince \
+        org.gnome.Extensions \
+        org.gnome.Logs \
+        org.gnome.NautilusPreviewer \
+        org.gnome.TextEditor \
+        org.gnome.baobab \
+        org.gnome.clocks \
+        org.gnome.eog
+    
 
-echo "Enabling sddm"
-sudo systemctl disable gdm
-sudo systemctl enable sddm
+    case $2 in
+        "--free") install_freeware ;;
+        "--nonfree") install_proprietary ;;
+    esac
 
-echo "Setting fish as login shell"
-sudo usermod --shell $(which fish) $(whoami)
+    echo "Installing configs"
+    install_configs
 
-cfg="/usr/share/leftite/configs"
-mkdir -p ~/.config/dunst/../alacritty/../fish/../polybar
+    echo "Enabling sddm"
+    sudo systemctl disable gdm
+    sudo systemctl enable sddm
 
-echo "Installing configs"
-cp -r $cfg/leftwm ~/.config/
-cp $cfg/dunstrc ~/.config/dunst
-cp -r $cfg/rofi/ ~/.config/
-cp $cfg/alacritty.yml ~/.config/alacritty/
-cp $cfg/config.fish ~/.config/fish
-cp $cfg/wallpaper.jpg ~/.config/
-cp $cfg/polybar.ini ~/.config/polybar/config.ini
-
-ln -s ~/.config/leftwm/themes/leftite ~/.config/leftwm/themes/current
+    echo "Setting fish as login shell"
+    sudo usermod --shell $(which fish) $(whoami)
 }
+
+install_configs() {
+    cfg="/usr/share/leftite/configs"
+    mkdir -p ~/.config/dunst/../alacritty/../fish/../polybar
+
+    cp -r $cfg/leftwm ~/.config/
+    cp $cfg/dunstrc ~/.config/dunst
+    cp -r $cfg/rofi/ ~/.config/
+    cp $cfg/alacritty.yml ~/.config/alacritty/
+    cp $cfg/config.fish ~/.config/fish
+    cp $cfg/wallpaper.jpg ~/.config/
+    cp $cfg/polybar.ini ~/.config/polybar/config.ini
+
+    ln -s ~/.config/leftwm/themes/leftite ~/.config/leftwm/themes/current
+}
+
+install_freeware() {
+    echo "Installing flatpaks"
+    flatpak install --user --noninteractive \
+        org.mozilla.firefox \
+        com.vscodium.codium
+}
+
+install_proprietary() {
+    echo "Installing flatpaks"
+    flatpak install --user --noninteractive \
+        org.mozilla.firefox \
+        flathub com.visualstudio.code
+}
+
 
 help() {
     echo "Commands:"
     echo " - firstboot: runs the install script"
+    echo "Options:"
+    echo "-d --debug: print debug info (set -eux)"
 }
 
 while [[ "$1" ]]; do
     case $1 in 
-        "help") help ;;
-        "firstboot") firstboot ;;
+        "--help"|"-h"|"help") help ;;
+        "firstboot") firstboot $@ ;;
         "-d"|"--debug") set -eux ;;
     esac
     
