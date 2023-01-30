@@ -18,7 +18,7 @@ A [LeftWM](https://github.com/leftwm/leftwm) workstation for [Fedora Silverblue]
     leftos firstboot --nonfree
     ```
     for the nonfree software install. This does include telemtry, you have been warned.
-    Then press Meta + shift + r to reload and you should be good to go!
+    Then press Meta + shift + r to reload and you should be good to go! You may want to reboot as fish doesn't get set live, but it's not a huge deal.
 
     ## Credits
     - To Marian Arlt for the [Sugar Dark Theme](https://github.com/MarianArlt/sddm-sugar-dark) which this sddm theme is based off (a straight clone of with a new colorscheme)

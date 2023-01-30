@@ -92,7 +92,7 @@ install_proprietary() {
     flatpak install --user --noninteractive \
         org.mozilla.firefox \
         flathub com.visualstudio.code
-    cat <<EOF > $HOME/.var/app/com.visualstudio.code/config/vscode/user/settings.json
+    cat <<EOF > $HOME/.var/app/com.visualstudio.code/config/Code/user/settings.json
     {
         "terminal.integrated.defaultProfile.linux": "bash",
         "terminal.integrated.profiles.linux": {
