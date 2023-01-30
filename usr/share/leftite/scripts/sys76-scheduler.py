@@ -6,7 +6,7 @@ import os
 
 disp = Xlib.display.Display()
 root = disp.screen().root
-cmd = "dbus-send com.system76.Scheduler /com/system76/Scheduler SetForegroundProcess {id}"
+cmd = "dbus-send --system --dest=com.system76.Scheduler /org/system76/Scheduler com.system76.Scheduler.SetForegroundProcess uint32:{id}"
 
 NET_WM_NAME = disp.intern_atom('_NET_WM_NAME')
 NET_ACTIVE_WINDOW = disp.intern_atom('_NET_ACTIVE_WINDOW')

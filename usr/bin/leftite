@@ -46,9 +46,12 @@ firstboot() {
     echo "Installing configs"
     install_configs
 
-    echo "Enabling sddm"
-    sudo systemctl disable gdm
-    sudo systemctl enable sddm
+    echo "Enabling system76-scheduler"
+    sudo systemctl enable --now com.system76.Scheduler.service
+
+    #echo "Enabling sddm"
+    #sudo systemctl disable gdm
+    #sudo systemctl enable sddm
 
     echo "Setting fish as login shell"
     sudo usermod --shell $(which fish) $(whoami)
