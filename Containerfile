@@ -25,7 +25,8 @@ RUN rpm-ostree override remove firefox firefox-langpacks
 # install everything 
 RUN rpm-ostree install leftwm rofi feh \
     alacritty dunst polybar picom fish \
-    sddm distrobox qt5-qtquickcontrols2 hack-fonts
+    sddm distrobox qt5-qtquickcontrols2 \
+    hack-fonts system76-scheduler
 
 
 # install sddm theme

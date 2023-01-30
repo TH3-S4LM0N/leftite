@@ -99,11 +99,16 @@ help() {
     echo "-d --debug: print debug info (set -eux)"
 }
 
+sys76-scheduler() {
+    /usr/share/leftite/scripts/sys76-scheduler.py &
+}
+
 while [[ "$1" ]]; do
     case $1 in 
         "--help"|"-h"|"help") help ;;
         "firstboot") firstboot $@ ;;
         "-d"|"--debug") set -eux ;;
+        "script-system76-scheduler") sys76-scheduler ;;
     esac
     
     shift

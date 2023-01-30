@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 # leftwm theme up script
+
+sys76-scheduler() {
+    
+}
+
 export SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 
 # Down the last running theme
