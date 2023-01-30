@@ -2,13 +2,13 @@ window:
   opacity: 0.95
 font:
   normal:
-    family: "Hack Nerd Font Mono"
+    family: "Hack"
   bold:
-    family: "Hack Nerd Font Mono"
+    family: "Hack"
   italic:
-    family: "Hack Nerd Font Mono"
+    family: "Hack"
   bold_italic:
-    family: "Hack Nerd Font Mono"
+    family: "Hack"
 
 colors:
   primary:
