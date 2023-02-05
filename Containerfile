@@ -21,7 +21,6 @@ rpm-ostree install rpmfusion-nonfree-release rpmfusion-free-release --uninstall=
 # install flatpak incase people want to use a diff browser
 RUN rpm-ostree override remove firefox firefox-langpacks
 
-
 # install everything 
 RUN rpm-ostree install leftwm rofi feh \
     alacritty dunst polybar picom fish \

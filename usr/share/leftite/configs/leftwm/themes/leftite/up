@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
 # leftwm theme up script
 
-sys76-scheduler() {
-    
-}
-
 export SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 
 # Down the last running theme
@@ -27,6 +23,8 @@ fi
 if [ -x "$(command -v dunst)" ]; then
     dunst &
 fi
+
+/usr/share/leftite/scripts/sys76-scheduler.py &
 
 monitors="$(polybar -m | sed s/:.*//)"
 leftwm-state -n -q -t $SCRIPTPATH/sizes.liquid | sed -r '/^\s*$/d' | while read -r width x y
