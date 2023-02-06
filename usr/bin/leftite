@@ -80,7 +80,7 @@ install_freeware() {
     flatpak run com.vscodium.codium --install-extension zhuangtongfa.material-theme
     
 
-    echo -e '{"terminal.integrated.defaultProfile.linux":"bash","terminal.integrated.profiles.linux":{"bash":{"path":"/usr/bin/flatpak-spawn","args":["--host","--env=TERM=xterm-256color","bash"]}}}' > $HOME/.var/app/com.vscodium.codium/config/VSCodium/User/settings.json
+    echo -e '{"terminal.integrated.defaultProfile.linux":"bash","terminal.integrated.profiles.linux":{"bash":{"path":"/usr/bin/flatpak-spawn","args":["--host","--env=TERM=xterm-256color","bash"]}},"workbench.colorTheme": "One Dark Pro Darker"}' > $HOME/.var/app/com.vscodium.codium/config/VSCodium/User/settings.json
     
 }
 
@@ -91,7 +91,7 @@ install_proprietary() {
         flathub com.visualstudio.code
     flatpak run com.visualstudio.code --install-extension zhuangtongfa.material-theme
 
-    echo -e '{"terminal.integrated.defaultProfile.linux":"bash","terminal.integrated.profiles.linux":{"bash":{"path":"/usr/bin/flatpak-spawn","args":["--host","--env=TERM=xterm-256color","bash"]}}}' > $HOME/.var/app/com.visualstudio.code/config/Code/User/settings.json
+    echo -e '{"terminal.integrated.defaultProfile.linux":"bash","terminal.integrated.profiles.linux":{"bash":{"path":"/usr/bin/flatpak-spawn","args":["--host","--env=TERM=xterm-256color","bash"]}},"workbench.colorTheme": "One Dark Pro Darker"}' > $HOME/.var/app/com.visualstudio.code/config/Code/User/settings.json
 }
 
 
