@@ -1,5 +1,5 @@
 [copr:copr.fedorainfracloud.org:kylegospo:system76-scheduler]
-name=Copr repo for system76-schduler owned by kylegospo
+name=Copr repo for system76-scheduler owned by kylegospo
 baseurl=https://download.copr.fedorainfracloud.org/results/kylegospo/system76-scheduler/fedora-$releasever-$basearch/
 type=rpm-md
 skip_if_unavailable=True

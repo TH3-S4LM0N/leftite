@@ -10,19 +10,13 @@ if [ -f "/tmp/leftwm-theme-down" ]; then
 fi
 ln -s $SCRIPTPATH/down /tmp/leftwm-theme-down
 
-if [ -x "$(command -v picom)" ]; then
-    picom &
-fi
+picom &
 
 leftwm-command "LoadTheme $SCRIPTPATH/theme.ron"
 
-if [ -x "$(command -v feh)" ]; then
-    feh --bg-scale --no-fehbg ~/.config/wallpaper.jpg
-fi
+feh --bg-scale --no-fehbg ~/.config/wallpaper.jpg
 
-if [ -x "$(command -v dunst)" ]; then
-    dunst &
-fi
+dunst &
 
 /usr/share/leftite/scripts/sys76-scheduler.py &
 
