@@ -1,4 +1,4 @@
-
+FROM quay.io/fedora-ostree-desktops/silverblue:37
 
 # oci
 COPY etc /etc
