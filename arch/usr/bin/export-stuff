@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+distrobox-export --app code
+distrobox-export --bin /usr/bin/helix --export-path ~/.local/bin
+distrobox-export --app steam

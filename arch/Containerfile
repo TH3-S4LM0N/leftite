@@ -1,0 +1,19 @@
+FROM archlinux:latest
+
+COPY arch/usr /usr
+
+# config pkg stuff
+RUN sed -i 's/#Color/Color/g' /etc/pacman.conf
+RUN echo "[multilib]\nInclude = /etc/pacman.d/mirrorlist\n" >> /etc/pacman.conf
+RUN sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j$(nproc)"/g' /etc/makepkg.conf
+
+# install yay
+RUN pacman -Syu --noconfirm base-devel git 
+RUN git clone https://aur.archlinux.org/yay-bin.git && cd yay-bin && \
+    makepkg --noconfirm -sci && \
+    cd .. && rm -r yay-bin
+
+RUN yay -Sy \
+    visual-studio-code-bin fish helix \
+    lib32-mesa lib32-vulkan-radeon vulkan-radeon mesa \
+    steam

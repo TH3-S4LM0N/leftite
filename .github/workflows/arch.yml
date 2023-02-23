@@ -1,18 +1,17 @@
-name: oci
-
+name: Build arch
 on:
   push:
     paths:
-      - 'leftite/**'
+      - 'arch/**'
   schedule:
-    - cron: '0 0 * * *'  # every day
-
+    - cron: '0 0 * * *'  # Once per day
+  workflow_dispatch:
 env:
-  IMAGE_NAME: leftite
-  IMAGE_TAGS: latest ${{ github.sha }}
-  IMAGE_REGISTRY: ghcr.io/${{ github.repository_owner }}
-  REGISTRY_USER: ${{ github.actor }}
-  REGISTRY_PASSWORD: ${{ github.token }}
+    IMAGE_NAME: arch
+    IMAGE_TAGS: latest ${{ github.sha }}
+    IMAGE_REGISTRY: ghcr.io/${{ github.repository_owner }}
+    REGISTRY_USER: ${{ github.actor }}
+    REGISTRY_PASSWORD: ${{ github.token }}
 
 jobs:
   push-ghcr:
@@ -26,9 +25,9 @@ jobs:
         uses: ASzc/change-string-case-action@v5
         with:
           string: ${{ env.IMAGE_REGISTRY }}
-      
+
       # Checkout push-to-registry action github repository
-      - name: Checkout Push to Regisktry action
+      - name: Checkout Push to Registry action
         uses: actions/checkout@v2
 
       # Build image using Buildah action
@@ -37,7 +36,7 @@ jobs:
         uses: redhat-actions/buildah-build@v2
         with:
           containerfiles: |
-            ./leftite/Containerfile
+            ./arch/Containerfile
           image: ${{ env.IMAGE_NAME }}
           tags: ${{ env.IMAGE_TAGS }}
           oci: true
