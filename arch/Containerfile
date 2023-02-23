@@ -4,7 +4,7 @@ COPY arch/usr /usr
 
 # config pkg stuff
 RUN sed -i 's/#Color/Color/g' /etc/pacman.conf
-RUN echo "[multilib]\nInclude = /etc/pacman.d/mirrorlist\n" >> /etc/pacman.conf
+RUN echo -e "[multilib]\nInclude = /etc/pacman.d/mirrorlist\n" >> /etc/pacman.conf
 RUN sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j$(nproc)"/g' /etc/makepkg.conf
 
 # install yay
