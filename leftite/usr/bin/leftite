@@ -51,7 +51,7 @@ firstboot() {
 
     echo "Preparing container"
     distrobox create -p -i ghcr.io/th3-s4lm0n/arch -n arch
-    distrobox enter arch -- export-stuff
+    distrobox enter arch -- arch-init
 
     echo "Installing Rust"
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh

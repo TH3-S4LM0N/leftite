@@ -1,0 +1,13 @@
+{
+    "editor.minimap.enabled": false,
+    "workbench.colorTheme": "One Dark Pro Darker",
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "editor.hover.delay": 1000,
+    //"explorer.excludeGitIgnore": true,
+    "editor.acceptSuggestionOnEnter": "smart",
+    "telemetry.telemetryLevel": "off",
+    "redhat.telemetry.enabled": false,
+    "notebook.diff.enablePreview": false,
+    "rust-analyzer.cargo.features": "all"
+}

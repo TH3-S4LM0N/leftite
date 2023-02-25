@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-yay -S --noconfirm visual-studio-code-bin
-mkdir ~/.local/bin
-distrobox-export --app code
-distrobox-export --bin /usr/bin/helix --export-path ~/.local/bin
-distrobox-export --app steam

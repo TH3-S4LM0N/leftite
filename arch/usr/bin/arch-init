@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# install vscode (doesnt work in container for some reason)
+yay -S --noconfirm visual-studio-code-bin
+code --install-extension vadimcn.vscode-lldb
+code --install-extension serayuzgur.crates
+code --install-extension tamasfe.even-better-toml
+code --install-extension zhuangtongfa.material-theme
+code --install-extension jock.svg
+code --install-extension a5huynh.vscode-ron
+
+# export those apps
+mkdir ~/.local/bin
+distrobox-export --app code
+distrobox-export --bin /usr/bin/helix --export-path ~/.local/bin
+distrobox-export --app steam
