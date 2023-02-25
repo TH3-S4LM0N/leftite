@@ -1,4 +1,4 @@
-name: oci
+name: Build silverblue (oci)
 
 on:
   push:

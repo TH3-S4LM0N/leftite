@@ -31,11 +31,16 @@ firstboot() {
         org.gnome.clocks \
         org.gnome.eog
 
+    echo "Installing flatpaks"
+    flatpak install flathub --noninteractive \
+        com.spotify.Client \
+        com.discordapp.Discord
+
     echo "Installing configs"
     install_configs
 
     echo "Enabling system76-scheduler"
-    sudo systemctl enable --now com.system76.Scheduler.service
+    sudo systemctl enable com.system76.Scheduler.service
 
     #echo "Enabling sddm"
     #sudo systemctl disable gdm
@@ -47,6 +52,9 @@ firstboot() {
     echo "Preparing container"
     distrobox create -p -i ghcr.io/th3-s4lm0n/arch -n arch
     distrobox enter arch -- export-stuff
+
+    echo "Installing Rust"
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 }
 
 install_configs() {
@@ -66,7 +74,7 @@ install_configs() {
 
 help() {
     echo "Commands:"
-    echo " - firstboot: runs the install script"
+    echo -e " - firstboot: runs the install script\n"
     echo "Options:"
     echo "-d --debug: print debug info (`set -eux`)"
 }

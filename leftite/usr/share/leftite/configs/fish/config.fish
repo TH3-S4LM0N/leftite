@@ -1,4 +1,7 @@
 if status is-interactive
+    # vars
+    set fish_greeting
+
     # colors
     set fish_color_user 40A4FF
     set fish_color_command cfbb07
@@ -9,6 +12,7 @@ if status is-interactive
 
     # a few qol aliases that shouldnt majorly effect life
     alias ls="ls -A --color=auto"
-    alias rm="rm -r"
+    alias rm="sudo rm -r"
     alias cp="cp -r"
+    alias mkdir="mkdir -p"
 end
