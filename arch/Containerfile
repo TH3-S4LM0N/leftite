@@ -20,7 +20,7 @@ USER root
 WORKDIR /
 RUN userdel -r build && rm -rf /home/build
 
-RUN yay -Sy \
-    visual-studio-code-bin fish helix \
+RUN yay -Sy --noconfirm \
+    fish helix \
     lib32-mesa lib32-vulkan-radeon vulkan-radeon mesa \
     steam
