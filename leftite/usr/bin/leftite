@@ -37,7 +37,8 @@ firstboot() {
         com.discordapp.Discord
 
     echo "Installing configs"
-    install_configs
+    cp /usr/share/leftite/configs/* ~/.config/
+    ln -s ~/.config/leftwm/themes/leftite ~/.config/leftwm/themes/current
 
     echo "Enabling system76-scheduler"
     sudo systemctl enable com.system76.Scheduler.service
