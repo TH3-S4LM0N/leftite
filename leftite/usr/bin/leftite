@@ -43,6 +43,10 @@ firstboot() {
 
     echo "Setting fish as login shell"
     sudo usermod --shell $(which fish) $(whoami)
+
+    echo "Preparing container"
+    distrobox create -p -i ghcr.io/th3-s4lm0n/arch -n arch
+    distrobox enter arch -- export-stuff
 }
 
 install_configs() {

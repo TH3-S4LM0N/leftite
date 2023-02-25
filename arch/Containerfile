@@ -24,3 +24,5 @@ RUN yay -Sy --noconfirm \
     fish helix \
     lib32-mesa lib32-vulkan-radeon vulkan-radeon mesa \
     steam
+
+ENTRYPOINT [ "fish" ]
