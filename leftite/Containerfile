@@ -1,12 +1,11 @@
 FROM quay.io/fedora-ostree-desktops/silverblue:37
 
-# oci
 COPY leftite/etc /etc
 COPY leftite/usr /usr
 
 # Enable RPM Fusion (thanks tony)
-RUN rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm && \
-rpm-ostree install rpmfusion-nonfree-release rpmfusion-free-release --uninstall=rpmfusion-free-release-$(rpm -E %fedora)-1.noarch --uninstall=rpmfusion-nonfree-release-$(rpm -E %fedora)-1.noarch
+RUN rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm 
+RUN rpm-ostree install rpmfusion-nonfree-release rpmfusion-free-release --uninstall=rpmfusion-free-release-$(rpm -E %fedora)-1.noarch --uninstall=rpmfusion-nonfree-release-$(rpm -E %fedora)-1.noarch
 
 # uninstall gnome
 # TO BE CLEAR:
@@ -25,4 +24,6 @@ RUN rpm-ostree install leftwm rofi feh \
     hack-fonts system76-scheduler playerctl \
     kmod-wl
 
-RUN rpm-ostree cleanup -m && ostree container commit
+RUN rpm-ostree cleanup -m
+RUN rm /var/log/akmods/akmods.log
+RUN ostree container commit
