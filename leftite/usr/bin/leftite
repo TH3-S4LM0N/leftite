@@ -62,15 +62,13 @@ install_configs() {
     cfg="/usr/share/leftite/configs"
     mkdir -p ~/.config/dunst/../alacritty/../fish/../polybar
 
-    cp -r $cfg/leftwm ~/.config/
-    cp $cfg/dunstrc ~/.config/dunst
-    cp -r $cfg/rofi/ ~/.config/
-    cp $cfg/alacritty.yml ~/.config/alacritty/
-    cp $cfg/config.fish ~/.config/fish
-    cp $cfg/wallpaper.jpg ~/.config/
-    cp $cfg/polybar.ini ~/.config/polybar/config.ini
-
-    ln -s ~/.config/leftwm/themes/leftite ~/.config/leftwm/themes/current
+    ln -s $cfg/leftwm ~/.config/leftwm
+    ln -s $cfg/dunstrc ~/.config/dunst/dunstrc
+    ln -s $cfg/rofi/ ~/.config/rofi
+    ln -s $cfg/alacritty.yml ~/.config/alacritty/alacritty.yml
+    cp $cfg/fish ~/.config/fish
+    cp $cfg/wallpaper.jpg ~/.config/wallpaper.jpg
+    cp $cfg/polybar ~/.config/polybar
 }
 
 help() {
