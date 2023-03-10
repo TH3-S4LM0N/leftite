@@ -55,7 +55,7 @@ firstboot() {
     distrobox enter arch -- arch-init
 
     echo "Installing Rust"
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- "-y --default-host x86_64-unknown-linux-gnu --default-toolchain stable --profile default --component llvm-tools"
 }
 
 install_configs() {
