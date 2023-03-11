@@ -65,18 +65,6 @@ firstboot() {
         | sh -s -- -y
 }
 
-install_configs() {
-    cfg="/usr/share/leftite/configs"
-    mkdir -p ~/.config/dunst/../alacritty/../fish/../polybar
-
-    ln -s $cfg/leftwm ~/.config/leftwm
-    ln -s $cfg/dunstrc ~/.config/dunst/dunstrc
-    ln -s $cfg/rofi/ ~/.config/rofi
-    ln -s $cfg/alacritty.yml ~/.config/alacritty/alacritty.yml
-    ln -s $cfg/fish ~/.config/fish
-    ln -s $cfg/wallpaper.jpg ~/.config/wallpaper.jpg
-    ln -s $cfg/polybar ~/.config/polybar
-}
 
 help() {
     echo "Commands:"
