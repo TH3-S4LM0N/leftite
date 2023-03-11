@@ -37,8 +37,14 @@ firstboot() {
         com.discordapp.Discord
 
     echo "Installing configs"
-    cp /usr/share/leftite/configs/* ~/.config/
-    ln -s ~/.config/leftwm/themes/leftite ~/.config/leftwm/themes/current
+    cfg="/usr/share/leftite/configs"
+    ln -s $cfg/leftwm ~/.config/leftwm
+    ln -s $cfg/dunstrc ~/.config/dunst/dunstrc
+    ln -s $cfg/rofi/ ~/.config/rofi
+    ln -s $cfg/alacritty.yml ~/.config/alacritty/alacritty.yml
+    ln -s $cfg/fish ~/.config/fish
+    ln -s $cfg/wallpaper.jpg ~/.config/wallpaper.jpg
+    ln -s $cfg/polybar ~/.config/polybar
 
     echo "Enabling system76-scheduler"
     sudo systemctl enable com.system76.Scheduler.service
@@ -55,7 +61,8 @@ firstboot() {
     distrobox enter arch -- arch-init
 
     echo "Installing Rust"
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- "-y --default-host x86_64-unknown-linux-gnu --default-toolchain stable --profile default --component llvm-tools"
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs \
+        | sh -s -- -y
 }
 
 install_configs() {
@@ -66,9 +73,9 @@ install_configs() {
     ln -s $cfg/dunstrc ~/.config/dunst/dunstrc
     ln -s $cfg/rofi/ ~/.config/rofi
     ln -s $cfg/alacritty.yml ~/.config/alacritty/alacritty.yml
-    cp $cfg/fish ~/.config/fish
-    cp $cfg/wallpaper.jpg ~/.config/wallpaper.jpg
-    cp $cfg/polybar ~/.config/polybar
+    ln -s $cfg/fish ~/.config/fish
+    ln -s $cfg/wallpaper.jpg ~/.config/wallpaper.jpg
+    ln -s $cfg/polybar ~/.config/polybar
 }
 
 help() {
@@ -76,10 +83,6 @@ help() {
     echo -e " - firstboot: runs the install script\n"
     echo "Options:"
     echo "-d --debug: print debug info (`set -eux`)"
-}
-
-sys76-scheduler() {
-    /usr/share/leftite/scripts/sys76-scheduler.py &
 }
 
 while [[ "$1" ]]; do
